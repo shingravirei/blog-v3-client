@@ -1,9 +1,24 @@
 import React from 'react';
 
+import BlogPreview from './BlogPreview';
+
+import '../styles/style.css';
+
 const App = () => {
     return (
-        <div>
-            <h1>Hello, World.</h1>
+        <div className={'container'}>
+            <h1>Shingravirei's Blog</h1>
+            <BlogPreview />
+            <BlogPreview />
+            <BlogPreview />
+            <BlogPreview />
+            <BlogPreview />
+            <BlogPreview />
+            <BlogPreview />
+            <BlogPreview />
+            <BlogPreview />
+            <BlogPreview />
+            <BlogPreview />
         </div>
     );
 };
