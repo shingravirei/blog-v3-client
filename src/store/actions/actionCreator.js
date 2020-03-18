@@ -40,21 +40,13 @@ const login = user => {
     };
 };
 
-const logout = () => {
-    return dispatch => {
-        dispatch({
-            type: LOGOUT
-        });
-    };
-};
+const logout = () => ({
+    type: LOGOUT
+});
 
-const initUser = user => {
-    return dispatch => {
-        dispatch({
-            type: INIT_USER,
-            payload: user
-        });
-    };
-};
+const initUser = user => ({
+    type: INIT_USER,
+    payload: user
+});
 
 export { initBlogs, addBlog, login, logout, initUser };
