@@ -6,10 +6,15 @@ const blogReducer = (state = [], action) => {
             if (action.payload === undefined) {
                 return state;
             }
+
             return action.payload;
 
         case ADD_BLOG:
-            return state;
+            if (!action.payload) {
+                return state;
+            }
+
+            return [...state, action.payload];
 
         default:
             return state;

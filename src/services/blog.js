@@ -2,16 +2,32 @@ import axios from 'axios';
 
 const baseUrl = 'http://localhost:7777/api';
 
-const getAllBlogs = async token => {
+const getAllBlogs = async () => {
+    try {
+        const result = await axios.get(`${baseUrl}/blogs/all`);
+
+        return result.data;
+    } catch (err) {}
+};
+
+const newBlog = async (blog, token) => {
     try {
         const config = {
             headers: { Authorization: `bearer ${token}` }
         };
 
-        const blogs = await axios.get(`${baseUrl}/blogs`, config);
+        const result = await axios.post(`${baseUrl}/blogs`, blog, config);
 
-        return blogs.data;
+        return result.data;
     } catch (err) {}
 };
 
-export { getAllBlogs };
+const loginUser = async user => {
+    try {
+        const result = await axios.post(`${baseUrl}/login`, user);
+
+        return result.data;
+    } catch (err) {}
+};
+
+export { getAllBlogs, newBlog, loginUser };

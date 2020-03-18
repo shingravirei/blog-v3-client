@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect
+} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { initBlogs } from '../store/actions/actionCreator';
+import { initBlogs, initUser } from '../store/actions/actionCreator';
 
 import Home from './routes/Home';
 import AddBlog from './routes/AddBlog';
@@ -11,16 +16,16 @@ import Nav from './Nav';
 
 import '../styles/style.css';
 
-const App = ({ initBlogs }) => {
-    const [firstTime, setFirstTime] = useState(true);
-
+const App = ({ initBlogs, initUser, logged }) => {
     useEffect(() => {
-        if (firstTime) {
-            const tempToken = 'temp_token';
-            initBlogs(tempToken);
-            setFirstTime(!firstTime);
+        initBlogs();
+
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        if (user) {
+            initUser(user);
         }
-    }, [initBlogs, firstTime]);
+    }, [initUser, initBlogs]);
 
     return (
         <Router>
@@ -31,7 +36,7 @@ const App = ({ initBlogs }) => {
                         <Home />
                     </Route>
                     <Route path="/addblog">
-                        <AddBlog />
+                        {logged ? <AddBlog /> : <Redirect to="/login" />}
                     </Route>
                     <Route path="/about">
                         <About />
@@ -45,6 +50,8 @@ const App = ({ initBlogs }) => {
     );
 };
 
-const mapDispatchToProps = { initBlogs };
+const mapState = state => ({ logged: state.user.logged });
 
-export default connect(null, mapDispatchToProps)(App);
+const mapDispatch = { initBlogs, initUser };
+
+export default connect(mapState, mapDispatch)(App);

@@ -16,7 +16,7 @@ const Home = ({ blogs }) => {
 
 const mapStateToProps = state => {
     return {
-        blogs: state.blogs
+        blogs: state.blogs.slice().reverse()
     };
 };
 
