@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: Raleway;
+    color: rebeccapurple;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.navbar {
+    font-size: 1.5em;
+    display: flex;
+}
+
+.navbar > p {
+    padding: 1em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container > h1 {
+    padding: 1em 0 1.5em 0;
+}
+
+.blog-preview {
+    width: 70%;
+    margin-bottom: 2em;
+    padding: 1em;
+    border: rebeccapurple 0.2em solid;
+}
+
+.content {
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    height: 5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.title > p {
+    padding-bottom: 0.5em;
+    font-size: 1.5em;
+    margin-left: 1em;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+button {
+    border-radius: 2px;
+    font-size: 1.5em;
+    padding: 0.5em;
+    color: rebeccapurple;
+    background-color: whitesmoke;
+    border: rebeccapurple 0.1em solid;
+    outline: none;
+}
+
+.preview-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edited {
+    float: left;
+    align-self: center;
+    font-size: 1em;
+}
+
+input {
+    height: 2.5em;
+    border: rebeccapurple 0.12em solid;
+    outline: none;
+    padding: 0.5em 1em;
+    width: 25em;
+    font-size: 1.5em;
+    font-family: Raleway;
+}
+
+input:focus {
+    border: purple 0.12em solid;
+}
+
+form > div > input {
+    margin-bottom: 1em;
+}
+
+form > h1 {
+    margin-bottom: 0.5em;
+}
+
+textarea {
+    border: rebeccapurple 0.12em solid;
+    padding: 0.5em 1em;
+    width: 25em;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+    font-family: Raleway;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: purple;
+}
+
+.container > form {
+    margin-top: 10em;
+}
+
+@media (max-width: 700px) {
+    .blog-preview {
+        width: 85%;
+    }
+}
