@@ -1,3 +1,5 @@
+/* this is bad, dont do it like me */
+
 * {
     margin: 0;
     border: none;
@@ -41,7 +43,20 @@ body {
     border: rebeccapurple 0.2em solid;
 }
 
+.blog {
+    width: 70%;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
 .content {
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    height: 5em;
+}
+
+.preview {
     font-size: 1.5em;
     margin-top: 1em;
     margin-bottom: 0.5em;
@@ -125,6 +140,16 @@ textarea:focus {
 
 .container > form {
     margin-top: 10em;
+}
+
+#btn-logout {
+    font-size: 15px;
+    border: none;
+    font-family: Raleway;
+}
+
+#btn-logout:hover {
+    cursor: pointer;
 }
 
 @media (max-width: 700px) {

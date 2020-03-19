@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { initBlogs, initUser } from '../store/actions/actionCreator';
 
 import Home from './routes/Home';
+import Blog from './routes/Blog';
 import AddBlog from './routes/AddBlog';
 import About from './routes/About';
 import Login from './routes/Login';
@@ -16,7 +17,7 @@ import Nav from './Nav';
 
 import '../styles/style.css';
 
-const App = ({ initBlogs, initUser, logged }) => {
+const App = ({ initBlogs, initUser, logged, blogs }) => {
     useEffect(() => {
         initBlogs();
 
@@ -35,6 +36,10 @@ const App = ({ initBlogs, initUser, logged }) => {
                     <Route exact path="/">
                         <Home />
                     </Route>
+                    <Route
+                        path="/blog/:id"
+                        render={({ match }) => <Blog id={match.params.id} />}
+                    />
                     <Route path="/addblog">
                         {logged ? <AddBlog /> : <Redirect to="/login" />}
                     </Route>

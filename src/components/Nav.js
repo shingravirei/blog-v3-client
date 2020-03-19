@@ -28,7 +28,9 @@ const Nav = ({ logged, logout, history }) => {
             </p>
 
             {logged ? (
-                <button onClick={handleLogout}>logout</button>
+                <button id={'btn-logout'} onClick={handleLogout}>
+                    <u>Logout</u>
+                </button>
             ) : (
                 <p>
                     <Link to="/login">Login</Link>
